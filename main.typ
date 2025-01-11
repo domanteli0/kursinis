@@ -19,8 +19,7 @@
 
 #par[.]
 
-
-Traciškai programų sistemų modeliai aprašomi tekstu ir vizualinėmis diagramomis - sunkiai patikrinami automatiniai įrankiais, t.t. *[TODO]*.
+Traciškai programų sistemų modeliai aprašomi tekstu ir vizualinėmis diagramomis (UML) - šie yra sunkiai patikrinami automatiniai įrankiais. *[TODO]*.
 
 Formalūs metodai (angl. _formal methods_) yra programinės įrangos kūrimo metodai, kurie naudoja matematine logika pagrįstus modelius, tam kad būtų galima analizuoti ir įrodyti programinės įrangos modelio savybes.
 
@@ -42,8 +41,12 @@ Search engines [probably irrelevant]:
 - Isabelle @FindFacts,
 - Loogle for theorems in Lean
 
+= Background
 
-= TLA+
+Basically, šitai:
+"In this section, we describe the fundamental technologies for this paper. We describe the proof assistant Coq, giving an overview of how it works, as well as describe Visual Studio Code (VS Code), the Language Server Protocol (LSP), and the concept of code completion." bet skirtą šitam darbui.
+
+== TLA+
 
 Čia trumpai apie TLA+
 
@@ -52,7 +55,9 @@ TLA in Isabelle:
 
 == TLAMP
 
-Something something, čia paaiškinti kas yra ir kaip veikia TLAPM / TLAPS.
+paaiškinti kas yra ir kaip veikia TLAPM / TLAPS.
+
+== Isabelle
 
 = Faktų paieška
 
@@ -62,6 +67,7 @@ Theorem search:
 
 LSP stuff:
 - Coq auto-completion @CoqAutoCompletion [probably very relevant]
+  - "For every file, at every location where the tactics `apply` and `rewrite` are used, request for a list of completion items."
 - Coq search by type inhibition @CoqSearchByTypeInhabition [probably irrelevant]
 
 == Previous art/work
@@ -72,9 +78,9 @@ Isabelle `find_theorems` ir `find_consts` komandos, kaip veikia Coq `Search` kom
 
 == Implementacija / kaip susijuniga su lsp ir TLAMP
 
-Planas xuliganas: 
+Planas xuliganas:
 
-  vscode-lsp \<-> tlamp_lsp \<-> Isabelle
+  vscode-lsp \<-> tlamp_lsp \<-> tlamp \<-> Isabelle
 
 Galutinis rezultatas, kaip veikia, kaip naudotis, kaip pritaikyti.
 

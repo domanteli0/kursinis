@@ -32,13 +32,6 @@
     number-align: right,
   )
 
-  // Configure paragraph properties
-  set par(
-    justify: true,
-    first-line-indent: 1cm,
-    // leading: 1.5em
-  )
-
   // Title page
   page(
     align(center)[
@@ -106,6 +99,7 @@
   )
   pagebreak()
 
+  set text(size: 12pt)
   // Main content
   body
 }

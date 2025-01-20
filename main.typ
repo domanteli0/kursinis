@@ -1,4 +1,5 @@
 #import "style.typ": style
+#import "indent.typ": turn-on-first-line-indentation
 
 #show: style.with(
   university: "Vilniaus universitetas",
@@ -13,11 +14,9 @@
   date: "Vilnius - 2024",
 )
 
-#set text(size: 12pt)
+#show: turn-on-first-line-indentation
 
 = Įvadas
-
-#par[.]
 
 Traciškai programų sistemų modeliai aprašomi tekstu ir vizualinėmis diagramomis (UML) - šie yra sunkiai patikrinami automatiniai įrankiais. *[TODO]*.
 
@@ -50,8 +49,7 @@ Basically, šitai:
 
 Čia trumpai apie TLA+
 
-TLA in Isabelle:
-- @Merz1999AnEO, @Grov2011ADE
+- TLA in Isabelle: @Merz1999AnEO, @Grov2011ADE
 
 == TLAMP
 
@@ -61,14 +59,24 @@ paaiškinti kas yra ir kaip veikia TLAPM / TLAPS.
 
 = Faktų paieška
 
-Theorem search:
-- Isabelle/HOL `find_theorems`, `find_consts` komandos
+- Let AI/LLMs do it @TLAPS_LLM [outside the scope]
+  Galimai naudinga:
+    - "We present a novel approach to automated proof generation for the TLA+ Proof System (TLAPS) using Large Language Models (LLMs). Our method combines two key components: a sub-proof obligation generation phase that breaks down complex proof obligations into simpler sub-obligations, <...>"
 - Coq `Search` komanda
+- @TacTok
+- Coq search by type inhibition @CoqSearchByTypeInhabition [probably irrelevant]
+  - Kinda useless, bet _gal_ geri reference'ai:
+    - 
+
+- Hammer for Coq: Automation for dependent type theory @Hammer
+- Isabelle/HOL `find_theorems`, `find_consts` komandos
 
 LSP stuff:
-- Coq auto-completion @CoqAutoCompletion [probably very relevant]
+- Rocq/Coq auto-completion @CoqAutoCompletion
   - "For every file, at every location where the tactics `apply` and `rewrite` are used, request for a list of completion items."
-- Coq search by type inhibition @CoqSearchByTypeInhabition [probably irrelevant]
+  - Realiai čia aprašo kaip geriausia sort'inti rezultatus, naudinga, bet čia pirma reikia turėti, ką sort'inti: "The only difference in how the algorithms are implemented is the sorting step."
+
+Jeigu kalbėsiu apie Rocq (dar žinomą kaip Coq) @IntroToCoq
 
 == Previous art/work
 
@@ -93,6 +101,19 @@ TLA+ pavyzdys, kuriame matosi kaip veikia faktų paieška.
 = Rezultatai
 
 = Išvados
+
+= Notes
+
+- *The E Theorem Prover (https://github.com/eprover/eprover/blob/master/DOC/E-3.1.html)*
+
+  Kaip suprantu gan paprasta first-order logic theorem prover implementacija.
+  
+  1.2 versija turi \~157k C kodo eilučiu, tai tikriausiai ne tokia ir paprasta implementacija.
+
+  Tikriausiai irrelevant
+
+  - The CADE ATP System Competition (https://tptp.org/CASC/)
+  - "E -- a brainiac theorem prover" @EProver
 
 #pagebreak()
 #bibliography(title: [Šaltiniai], "refs.bib")

@@ -1,5 +1,6 @@
 #import "style.typ": style
 #import "indent.typ": turn-on-first-line-indentation
+#import "utils.typ": c
 
 #show: style.with(
   university: "Vilniaus universitetas",
@@ -15,6 +16,41 @@
 )
 
 #show: turn-on-first-line-indentation
+
+= Terminai
+
+// ```Coq
+// (* Defining a tactic *)
+// Ltac mega_destruct :=
+//   match goal with
+//     | [H: _ /\ _ |- _] => destruct H
+//     | [H: _ \/ _ |- _] => destruct H
+//     | [H: exists _ : _, _ |- _] => destruct H end.
+
+// (* Implemeting the rev function *)
+// Fixpoint rev {A:Type} (l:list A) : list A := match l with
+//   | nil => nil
+//   | cons h t => app (rev t) (cons h nil) end.
+
+// (* Specifying theorem statement for rev_rev *)
+// Theorem rev_rev :
+//     forall A (l l' : list A),
+//   l = rev l' ->
+//   l' = rev l.
+
+// (* Constructing proof for rev_rev *)
+// Proof.
+//   intros A l l' H. symmetry.
+//   rewrite H.
+//   apply rev_involutive.
+// Qed.
+// ```
+
+- ATP (Automated theorem proving) - TODO
+- Proof construction - įrodymo rašymas (ranka), i.e.: dalis nuo `Proof` iki `Qed`.
+- Proof search - ta dalis, kur ATP atlieka automatiškai.
+- Proof synthesis - ???
+- Proof script - viskas nuo `Theorem` iki `Qed`.
 
 = Įvadas
 
@@ -59,24 +95,45 @@ paaiškinti kas yra ir kaip veikia TLAPM / TLAPS.
 
 = Faktų paieška
 
-- Let AI/LLMs do it @TLAPS_LLM [outside the scope]
-  Galimai naudinga:
-    - "We present a novel approach to automated proof generation for the TLA+ Proof System (TLAPS) using Large Language Models (LLMs). Our method combines two key components: a sub-proof obligation generation phase that breaks down complex proof obligations into simpler sub-obligations, <...>"
-- Coq `Search` komanda
-- @TacTok
-- Coq search by type inhibition @CoqSearchByTypeInhabition [probably irrelevant]
-  - Kinda useless, bet _gal_ geri reference'ai:
-    - 
+_Gal_ tinkami raktažodžiai: metaheuristic search, proof script synthesis, automated proof script synthesis
 
-- Hammer for Coq: Automation for dependent type theory @Hammer
-- Isabelle/HOL `find_theorems`, `find_consts` komandos
+== RocQ (Coq)
 
-LSP stuff:
-- Rocq/Coq auto-completion @CoqAutoCompletion
+// #show ref: it => {
+//   let el = it.element
+//   it.citation
+// }
+
+- "Expanding Coq With Type Aware Code Completion" @CoqAutoCompletion
+  - Kaip suprantu veikia tik su `rewrite` ir `apply` taktikomis: "For every file, at every location where the tactics apply and rewrite are used, request for a list of completion items."
+  - "Discovery is handled through the internal function that is also used by the Search command in Coq"
   - "For every file, at every location where the tactics `apply` and `rewrite` are used, request for a list of completion items."
   - Realiai čia aprašo kaip geriausia sort'inti rezultatus, naudinga, bet čia pirma reikia turėti, ką sort'inti: "The only difference in how the algorithms are implemented is the sorting step."
 
+- TacTok: semantics-aware proof synthesis @TacTok
+  - Gal turi gerų reference'ų: "Recent research has shown that the proof state can help predict the next step."
+  - "In this paper, we present TacTok, the first technique that attempts to fully automate proof script synthesis by modeling proof scripts using both the partial proof script written thus far and the semantics of the proof state"
+  - Cited:
+    - CoqHammer
+    - ASTactic
+- Coq search by type inhibition @CoqSearchByTypeInhabition [probably irrelevant]
+  - Kinda useless, bet _gal_ geri reference'ai:
+    - 
+- PRoofster: Automated Formal Verification @Proofster
+- Coq `Search` komanda
+
+- Hammer for Coq: Automation for dependent type theory @Hammer
+
 Jeigu kalbėsiu apie Rocq (dar žinomą kaip Coq) @IntroToCoq
+
+== Others
+
+- Let AI/LLMs do it @TLAPS_LLM [outside the scope]
+  Galimai naudinga:
+    - "We present a novel approach to automated proof generation for the TLA+ Proof System (TLAPS) using Large Language Models (LLMs). Our method combines two key components: a sub-proof obligation generation phase that breaks down complex proof obligations into simpler sub-obligations, <...>"
+- Isabelle/HOL `find_theorems`, `find_consts` komandos
+
+LSP stuff:
 
 == Previous art/work
 

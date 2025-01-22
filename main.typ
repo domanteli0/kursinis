@@ -110,17 +110,17 @@ _Gal_ tinkami raktažodžiai: metaheuristic search, proof script synthesis, au
   - "For every file, at every location where the tactics `apply` and `rewrite` are used, request for a list of completion items."
   - Realiai čia aprašo kaip geriausia sort'inti rezultatus, naudinga, bet čia pirma reikia turėti, ką sort'inti: "The only difference in how the algorithms are implemented is the sorting step."
 
-- TacTok: semantics-aware proof synthesis @TacTok
+- TO READ: TacTok: semantics-aware proof synthesis @TacTok
   - Gal turi gerų reference'ų: "Recent research has shown that the proof state can help predict the next step."
   - "In this paper, we present TacTok, the first technique that attempts to fully automate proof script synthesis by modeling proof scripts using both the partial proof script written thus far and the semantics of the proof state"
   - Cited:
     - CoqHammer
     - ASTactic
-- Coq search by type inhibition @CoqSearchByTypeInhabition [probably irrelevant]
+- TO READ: Coq search by type inhibition @CoqSearchByTypeInhabition [probably irrelevant]
   - Kinda useless, bet _gal_ geri reference'ai:
     - 
-- PRoofster: Automated Formal Verification @Proofster
-- Coq `Search` komanda
+- TO READ: PRoofster: Automated Formal Verification @Proofster
+- TO READ: Coq `Search` komanda
 
 - Hammer for Coq: Automation for dependent type theory @Hammer
 

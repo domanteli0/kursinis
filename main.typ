@@ -1,6 +1,7 @@
 #import "style.typ": style
 #import "indent.typ": turn-on-first-line-indentation
 #import "utils.typ": c
+#import "@preview/mitex:0.2.5": mitex, mi
 
 #show: style.with(
   university: "Vilniaus universitetas",
@@ -51,6 +52,7 @@
 - Proof search - ta dalis, kur ATP atlieka automatiškai.
 - Proof synthesis - ???
 - Proof script - viskas nuo `Theorem` iki `Qed`.
+- Sequent - In mathematical logic, a sequent is a very general kind of conditional assertion. pvz.: #mi(`A_1,\,\dots,A_m \,\vdash\, B_1,\,\dots,B_n.`) [DEFINITION STOLEN FROM WIKI]
 
 = Įvadas
 
@@ -86,16 +88,48 @@ Basically, šitai:
 Čia trumpai apie TLA+
 
 - TLA in Isabelle: @Merz1999AnEO, @Grov2011ADE
+- #link("https://lamport.azurewebsites.net/pubs/lamport-completion.pdf")[TLA checksheet]
+
+- The TLA+ Toolbox @TheTLAToolbox
+  - This paper by Kuppe et al presents the technical architecture of the toolbox
+  - Nalabai paaiškina kaip vekia pats TLAMP.
 
 == TLAMP
 
 paaiškinti kas yra ir kaip veikia TLAPM / TLAPS.
 
+- TLA+ Proofs @TLA_Proofs
+  - "We describe how to write TLA+ proofs and check them with TLAPS, the TLA+ Proof System."
+
+=== TLAMP \<-> SMT
+
+==== Encoding
+
+- "Encoding TLA⁺’s Set Theory for Automated Theorem Provers" @EncodingDefourne
+  - Very lonk phd dissertation
+  - "In Chapter 4, we define a direct encoding of TLA+ into HOL. A higher-order logic is necessary to encode the second-order constructs of TLA+ and axiom schemas. For instance, set comprehension {x ∈ S : e} is viewed as a second-order application setst(S, λx : e), and the full schema of comprehension from ZF is encoded as a single axiom."
+- "Encoding TLA+ Proof Obligations Safely for SMT" @EncodingTLASafelyForSMT
+  - "To increase trust in TLAPS, we revisited the encoding of TLA+ for SMT, whose implementation had become too complex. Our approach is based on a first-order axiomatization with E-matching patterns. The new encoding is available with TLAPS and achieves performances similar to the previous version, despite its simpler design."
+
 == Isabelle
+
+#link("https://isabelle.in.tum.de/doc/isar-ref.pdf")[The Isabelle/Isar Reference Manual]
+
+- TO READ: Automatic Proof and Disproof in Isabelle/HOL @AutomaticProofDisproofInIsabelleHol
+- TO READ: Automatic verification of non-recursive algorithm of Hanoi Tower by using Isabelle Theorem Prover @HanoiTowerIsabelle
+
+== Zenon
+
+- Zenon: an Extensible Automated Theorem Prover Producing Checkable Proofs @Zenon
+  - "Zenon can directly generate Coq proofs (proof script or proof terms)"
+  - "we present Zenon, an automated theorem prover for first or- der classical logic (with equality), based on the tableau method."
 
 = Faktų paieška
 
 _Gal_ tinkami raktažodžiai: metaheuristic search, proof script synthesis, automated proof script synthesis
+
+- TO READ: ProofCloud: A Proof Retrieval Engine for Verified Proofs in Higher Order Logic @ProofCloud
+  - 
 
 == RocQ (Coq)
 
@@ -103,6 +137,7 @@ _Gal_ tinkami raktažodžiai: metaheuristic search, proof script synthesis, au
 //   let el = it.element
 //   it.citation
 // }
+- #link("https://www.cs.cornell.edu/courses/cs3110/2018sp/a5/coq-tactics-cheatsheet.html#apply")[3110 Coq Tactics Cheatsheet]
 
 - "Expanding Coq With Type Aware Code Completion" @CoqAutoCompletion
   - Kaip suprantu veikia tik su `rewrite` ir `apply` taktikomis: "For every file, at every location where the tactics apply and rewrite are used, request for a list of completion items."
@@ -111,18 +146,29 @@ _Gal_ tinkami raktažodžiai: metaheuristic search, proof script synthesis, au
   - Realiai čia aprašo kaip geriausia sort'inti rezultatus, naudinga, bet čia pirma reikia turėti, ką sort'inti: "The only difference in how the algorithms are implemented is the sorting step."
 
 - TO READ: TacTok: semantics-aware proof synthesis @TacTok
+  - Machine learning
   - Gal turi gerų reference'ų: "Recent research has shown that the proof state can help predict the next step."
   - "In this paper, we present TacTok, the first technique that attempts to fully automate proof script synthesis by modeling proof scripts using both the partial proof script written thus far and the semantics of the proof state"
-  - Cited:
-    - CoqHammer
-    - ASTactic
 - TO READ: Coq search by type inhibition @CoqSearchByTypeInhabition [probably irrelevant]
-  - Kinda useless, bet _gal_ geri reference'ai:
-    - 
 - TO READ: PRoofster: Automated Formal Verification @Proofster
 - TO READ: Coq `Search` komanda
 
-- Hammer for Coq: Automation for dependent type theory @Hammer
+- Hammer for Coq: Automation for dependent type theory @CoqHammer
+
+  "This paper is the main reference for the hammer tactic."
+
+  - "Practical proof search for Coq by type inhabitation" @CoqHammerSauto
+
+    "This paper is the main reference for the sauto tactic."
+
+  - "A Shallow Embedding of Pure Type Systems into First-Order Logic" @CoqHammerHammer
+
+    "This paper proves soundness of a core version of the translation used by the hammer tactic."
+
+- Kiti Coq įrankiai:
+  - CoqHammer
+  - ASTactic [Irrelevant]
+    - Machine learning based
 
 Jeigu kalbėsiu apie Rocq (dar žinomą kaip Coq) @IntroToCoq
 
@@ -132,8 +178,8 @@ Jeigu kalbėsiu apie Rocq (dar žinomą kaip Coq) @IntroToCoq
   Galimai naudinga:
     - "We present a novel approach to automated proof generation for the TLA+ Proof System (TLAPS) using Large Language Models (LLMs). Our method combines two key components: a sub-proof obligation generation phase that breaks down complex proof obligations into simpler sub-obligations, <...>"
 - Isabelle/HOL `find_theorems`, `find_consts` komandos
+- Pattern maching proofs in `Lean` & `Idris`.
 
-LSP stuff:
 
 == Previous art/work
 

@@ -13,6 +13,10 @@
 ) = {
   set text(lang: "LT", font: "Palemonas", size: 14pt)
   set cite(style: "alphanumeric")
+  show link: it => {
+    set text(rgb("#0b00d5"))
+    underline(it)
+  }
 
   // Set document properties
   set document(

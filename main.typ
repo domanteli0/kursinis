@@ -101,12 +101,17 @@ paaiškinti kas yra ir kaip veikia TLAPM / TLAPS.
 - TLA+ Proofs @TLA_Proofs
   - "We describe how to write TLA+ proofs and check them with TLAPS, the TLA+ Proof System."
 
-=== TLAMP \<-> SMT
 
-==== Encoding
+=== Encoding
+
+// #image()
+
+- "Proof automation and type synthesis for set theory in the context of TLA+" @ProofAutomationAndTypeSynthesisTLA
+  - "Chapter 4 presents the generic integration framework for automated theorem provers in TLAPS and its main component, the translation to unsorted and many-sorted first-order logics."
+  - iš @ProofAutomationAndTypeSynthesisTLA: #image("img/TLA_translation_to_atp_&_smt.png", width: 75%)
 
 - "Encoding TLA⁺’s Set Theory for Automated Theorem Provers" @EncodingDefourne
-  - Very lonk phd dissertation
+  - Very lonk phd dissertation,
   - "In Chapter 4, we define a direct encoding of TLA+ into HOL. A higher-order logic is necessary to encode the second-order constructs of TLA+ and axiom schemas. For instance, set comprehension {x ∈ S : e} is viewed as a second-order application setst(S, λx : e), and the full schema of comprehension from ZF is encoded as a single axiom."
 - "Encoding TLA+ Proof Obligations Safely for SMT" @EncodingTLASafelyForSMT
   - "To increase trust in TLAPS, we revisited the encoding of TLA+ for SMT, whose implementation had become too complex. Our approach is based on a first-order axiomatization with E-matching patterns. The new encoding is available with TLAPS and achieves performances similar to the previous version, despite its simpler design."
@@ -128,8 +133,9 @@ paaiškinti kas yra ir kaip veikia TLAPM / TLAPS.
 
 _Gal_ tinkami raktažodžiai: metaheuristic search, proof script synthesis, automated proof script synthesis
 
-- TO READ: ProofCloud: A Proof Retrieval Engine for Verified Proofs in Higher Order Logic @ProofCloud
-  - 
+- Proof search engines:
+  - TO READ: ProofCloud: A Proof Retrieval Engine for Verified Proofs in Higher Order Logic @ProofCloud
+  - #link("https://behemoth.cl.cam.ac.uk/search/")[`SErAPIS`]
 
 == RocQ (Coq)
 

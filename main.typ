@@ -89,6 +89,7 @@ Čia trumpai apie TLA+
 
 - TLA in Isabelle: @Merz1999AnEO, @Grov2011ADE
 - #link("https://lamport.azurewebsites.net/pubs/lamport-completion.pdf")[TLA checksheet]
+- #link("https://lamport.azurewebsites.net/tla/tla2-guide.pdf")[TLA#super[+] Version 2: A Preliminary Guide]
 
 - The TLA+ Toolbox @TheTLAToolbox
   - This paper by Kuppe et al presents the technical architecture of the toolbox
